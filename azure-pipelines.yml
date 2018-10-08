@@ -6,6 +6,7 @@ variables:
 
 steps:
 - script: docker build -f src/DockerDemo/Dockerfile -t $(dockerId).azurecr.io/$(imageName) .
+  workingDirectory: src/
   displayName: 'Docker Build'
 
 - script: |
@@ -13,4 +14,5 @@ steps:
     docker push $(dockerId).azurecr.io/$(imageName)
   env:
     pswd: $(dockerPassword)
+  workingDirectory: src/
   displayName: 'Docker Push'
