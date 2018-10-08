@@ -5,7 +5,7 @@ variables:
   imageName: 'docker-demo:latest'
 
 steps:
-- script: docker build -f src/DockerDemo/Dockerfile -t $(dockerId).azurecr.io/$(imageName) .
+- script: docker build -f DockerDemo/Dockerfile -t $(dockerId).azurecr.io/$(imageName) .
   workingDirectory: src/
   displayName: 'Docker Build'
 
