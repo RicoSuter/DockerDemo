@@ -3,10 +3,9 @@ pool:
 
 variables:
   imageName: 'docker-demo:latest'
-  imageName2: 'docker-demo:$(build.buildId)'
 
 steps:
-- script: docker build -f DockerDemo/Dockerfile -t $(dockerId).azurecr.io/$(imageName) .
+- script: docker build -f src/DockerDemo/Dockerfile -t $(dockerId).azurecr.io/$(imageName) .
   displayName: 'Docker Build'
 
 - script: |
