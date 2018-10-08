@@ -7,8 +7,9 @@ variables:
 steps:
 - script: docker build -f DockerDemo/Dockerfile -t $(imageName) .
   displayName: 'Docker Build'
+
 - script: |
-    docker login -u $(dockerId).azurecr.io -p $(pswd) $(dockerId).azurecr.io
+    docker login -u $(dockerId).azurecr.io -p $(dockerPassword) $(dockerId).azurecr.io
     docker push $(dockerId).azurecr.io/$(imageName)
   env:
     pswd: $(dockerPassword)
