@@ -10,4 +10,6 @@ steps:
 - script: |
     docker login -u $(dockerId).azurecr.io -p $(pswd) $(dockerId).azurecr.io
     docker push $(dockerId).azurecr.io/$(imageName)
+  env:
+    pswd: $(dockerPassword)
   displayName: 'Docker Push'
