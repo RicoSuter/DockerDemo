@@ -2,6 +2,6 @@ version: '3.4'
 
 services:
   dockerdemo:
-    image: dockerdemocontainerregistry.azurecr.io/dockerdemo
+    image: dockerdemocontainerregistry.azurecr.io/docker-demo
     ports:
       - "80:80"
