@@ -5,10 +5,10 @@ variables:
   imageName: 'docker-demo:$(build.buildId)'
 
 steps:
-- script: docker build -f DockerDemo/Dockerfile -t $(dockerId).azurecr.io/$(imageName) .
-  displayName: 'Docker Build'
+- displayName: 'Docker Build'
+  script: docker build -f DockerDemo/Dockerfile -t $(dockerId).azurecr.io/$(imageName) .
 
-- script: |
+- displayName: 'Docker Push'
+  script: |
     docker login -u $(dockerId) -p $(dockerPassword) $(dockerId).azurecr.io
     docker push $(dockerId).azurecr.io/$(imageName)
-  displayName: 'Docker Push'
