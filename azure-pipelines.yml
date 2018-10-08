@@ -9,7 +9,7 @@ steps:
   displayName: 'Docker Build'
 
 - script: |
-    docker login -u $(dockerId).azurecr.io -p $(dockerPassword) $(dockerId).azurecr.io
+    docker login -u $(dockerId) -p $(dockerPassword) $(dockerId).azurecr.io
     docker push $(dockerId).azurecr.io/$(imageName)
   env:
     pswd: $(dockerPassword)
